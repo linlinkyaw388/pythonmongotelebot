@@ -1,0 +1,357 @@
+=> how to install python in ubuntu
+
+sudo apt update
+sudo apt upgrade
+
+=> Install open ssl
+# ubantu
+    sudo apt install libssl-dev openssl
+
+# Mac
+    brew install openssl
+
+
+=>python install
+
+wget https//wwww.python.org/ftp/python/3.13.6.tar.xz
+tar -xf python 8.13.tar.xz
+cd python-3.13.6
+
+    ./configure
+
+    # comple and install
+    make -js(nproc)
+    sudo make altinstall
+
+    sudo idconfig       //optional - refresh shared library cache
+
+
+--------------------------------------
+
+Install pip3 (pip 25.2 )
+
+#   ubuntu
+        sudo apt install python3-pip -y
+
+        pip3 --version      or      python -m pip --version
+        pip  --version ,            python3 -m pip --version
+        pip3 list           or      python3 -m pip --version
+
+
+----------------------------------------
+
+=> Install virtual enviroment
+        sudo apt install python3-venv
+
+=> Create virtual enviroment
+
+        #Linux/macos
+        python3 -m venv myenv   // you can use anyname whatever you want 'myenv'
+
+        #windows
+        py -m venv myenv
+
+        =>for activate
+            #Linux/macos
+            source myenv/bin/activate       //activate
+
+            #windows
+            .\myenv\scripts\activate     //activate
+
+            pip3 list 
+
+            deactivate                   //deactivate
+
+            pip3 list
+
+
+----------------------------------------
+
+
+=> (upgrade  python version) Linux user
+
+    (i) remove python installation folders
+        sudo rm - rf / user / local / lib / python3.13
+        sudo rm/user/local /bin / python 3.13*
+
+    (ii) python install process
+
+
+
+----------------------------------------
+
+            cd part3\l56imagewithpython
+
+folders  =  python -m venv myenv
+
+            Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+            
+activate = .\myenv\scripts\activate
+
+            .\myenv\scripts\activate
+
+            pip3 install openpyxl
+
+            pip3 list
+
+
+----------------------------------------
+
+=> mysql module (9.6.0)
+
+    https//pypi.org/project/mysql-connector-python/
+
+    pip3 install mysql-connector-python
+
+    pip3 list
+
+    Package                Version
+    ---------------------- -------
+    mysql-connector-python 9.6.0
+    pip                    25.2
+
+
+
+----------------------------------------
+
+
+
+
+    pip install mysql-connector-python==8.0.33
+    pip install PyMySQL
+    # requirements.txt မှာ
+    mysql-connector-python==8.0.33
+
+ =>  python -m venv myenv
+     myenv\Scripts\activate
+     pip install mysql-connector-python==8.0.33
+```
+
+---
+
+## **နိဂုံး:**
+
+**ပြဿနာဖြစ်ခဲ့တာ:**
+```
+MySQL Connector 9.6.0 + MariaDB 10.4.32 = ❌ Incompatible
+```
+
+**ဖြေရှင်းချက်:**
+```
+MySQL Connector 8.0.33 + MariaDB 10.4.32 = ✅ Perfect!
+
+----------------------------------------
+
+
+=> python dotenv (1.2.1)
+
+    (i)
+    https://pypi.org/project/python-dotenv/
+
+    pip3 install python-dotenv
+
+    pip3 list
+
+    (ii)
+    create .env file
+
+    (iii)import
+    form dotenv import load_dotenv
+    import os 
+
+    load_dotenv()
+
+
+
+
+----------------------------------------
+
+
+=> Telegrambot  ( 22.6)
+
+
+    https://python-telegram-bot.org/
+
+    pip3 install python-telegram-bot
+
+
+    pip3 list
+
+
+----------------------------------------
+
+=> Get telegram token key 
+
+        (i) Google or Telegram app , find @botfather
+
+        (ii) Create a new bot
+
+            name for your bot = louispybotl73
+            user name must end with bot = @louispybotl73_bot
+
+        (iii) copy your API token
+
+            Done! Congratulations on your new bot. You will find it at t.me/louispybotl73_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.
+
+            Use this token to access the HTTP API:
+            8569807688:AAHDvT9EPS121J-YhYgxAjflNTRxbSi0RqQ
+            Keep your token secure and store it safely, it can be used by anyone to control your bot.
+
+            For a description of the Bot API, see this page: https://core.telegram.org/bots/api
+
+
+
+----------------------------------------
+
+=> Create Database
+
+    CREATE TABLE telegramusers(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT,
+        first_name VARCHAR(255),
+        username VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+----------------------------------------
+
+
+----------------------------------------
+
+=> Create Database
+
+    CREATE TABLE attendances(
+        id INT AUTO_INCREMENT PRIMARY KEY,  
+        user_id BIGINT,
+        class VARCHAR(255) NOT NULL,
+        studentid VARCHAR(100) NOT NULL,
+        attcode VARCHAR(10) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+----------------------------------------
+
+
+----------------------------------------
+
+=> Create Database
+
+    CREATE TABLE seats(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        busname VARCHAR(50),
+        seatno VARCHAR(5),
+        status ENUM('idle','occupied') DEFAULT 'idle',  
+        user_id BIGINT NULL,
+        username VARCHAR(255),
+        booked_at TIMESTAMP NULL
+    );
+
+
+    INSERT INTO seats(busname,seatno,status) VALUES
+    ('Yangon Express','A1','idle'),
+    ('Yangon Express','A2','idle'),
+    ('Yangon Express','A3','idle'),
+    ('Yangon Express','A4','idle'),
+    ('Yangon Express','B1','idle'),
+    ('Yangon Express','B2','idle'),
+    ('Yangon Express','B3','idle'),
+    ('Yangon Express','B4','idle'),
+    ('Yangon Express','C1','idle'),
+    ('Yangon Express','C2','idle');
+
+    INSERT INTO seats(busname,seatno,status) VALUES
+    ('Mandalay Express','A1','idle'),
+    ('Mandalay Express','A2','idle'),
+    ('Mandalay Express','A3','idle'),
+    ('Mandalay Express','A4','idle'),
+    ('Mandalay Express','B1','idle'),
+    ('Mandalay Express','B2','idle'),
+    ('Mandalay Express','B3','idle'),
+    ('Mandalay Express','B4','idle'),
+    ('Mandalay Express','C1','idle'),
+    ('Mandalay Express','C2','idle');
+
+----------------------------------------
+
+
+
+firebase.google.com 
+
+click to go to console > get started > Create a new firebase project
+project name = Python B2 project
+click contine
+
+Enable gemini in firebase = unchecked
+click contine
+
+Enable google analysis for this project = unchecked
+click creat project > contine > contine
+
+=> Register an app for web
+
+    > config API key for firebase SDK code (software Development kit)
+    click "project overview" > project setting > general > click "web icon"
+
+    Register web > app nickname = Attformapp
+                    also set up firebase hosting for this app = unchecked
+                    click "Register app" > click "contine to console" 
+
+
+=> Create  Database
+        Bulid > firebase Database > creat Database
+        (i)select edition > standard edition > click "next"
+        (ii)Database ID and location
+            ID = DEFAULT
+            location = asia-southeast1(singapore) > click "next"
+        (iii) configure > start in production mode > click "creat"
+
+    => Error for writing (permission_denied)
+    bulid > firebase Database > rules > allow read, write : if true: > click "publish"
+
+
+=> firebase module (v 9.4.0)
+    pip install firebase-admin
+    pip3 list
+
+    (i) how to get firebase service account as json file
+
+        go to firebase console >  open your firebase project > project overview > project setting > service account > choose python > click generate private key
+        after download "serviceAccountkey.json"
+
+
+
+
+
+
+----------------------------------------
+
+
+=> Mongodb driver (v 4.15.3)
+
+        www.Mongodb.com > resources >docs > Mongodb driver > python > pymongo or "get started with Mongodb > getstarted
+
+        pypi.org/project/pymongo
+
+        pip install pymongo==4.15.3     
+
+         python -m pip list
+
+
+
+
+
+
+----------------------------------------
+
+
+Deploy to sever (render.com)
+
+    (i) prepare your project
+        method 1 (manually)
+            creat requirements.txt
+            activate , pip3 list , copy all dependencies and paste to requirements.txt
+
+
+        method 2 (auto)
+            we don't need to create requirements.txt
+            pip freeze > requirements.txt
