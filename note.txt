@@ -359,8 +359,10 @@ Deploy to sever (render.com)
 
     (ii) upload to github
 
+   
 
-    (iii) render (click new - web service)
+
+    (iii) render (click new - web service)   => new web service / repo link 
         source code = your repo
         name = pythonmongotelebotapp
         projectoptonal = no project / no env
@@ -380,3 +382,6 @@ Deploy to sever (render.com)
         clikc "Deploy web service"
 
         -card တောင်းနေ။
+
+
+        -မရရင် ပြန်ဖျက်ပြီး github မှာ ပြန်တင် ကြည့်ရန်။
