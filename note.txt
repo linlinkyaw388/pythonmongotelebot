@@ -354,4 +354,29 @@ Deploy to sever (render.com)
 
         method 2 (auto)
             we don't need to create requirements.txt
-            pip freeze > requirements.txt
+            pip freeze , requirements.txt
+
+
+    (ii) upload to github
+
+
+    (iii) render (click new - web service)
+        source code = your repo
+        name = pythonmongotelebotapp
+        projectoptonal = no project / no env
+        language = python3
+        branch = main
+        region = singapore (southeast asia)
+        root directoryoptional = eg.src 
+        bulid commands = pip install -r requirements.txt 
+        start command = python bot.py
+
+
+        enviroment variables
+        TELEGRAM_TOKEN ="8569807688:AAHDvT9EPS121J-YhYgxAjflNTRxbSi0RqQ"
+        MONGO_URI = mongodb+srv://admin:123@cluster0.louo0ao.mongodb.net/
+
+
+        clikc "Deploy web service"
+
+        -card တောင်းနေ။
